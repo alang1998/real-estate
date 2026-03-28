@@ -57,21 +57,21 @@ export default function TransactionsPage() {
     return (
         <div className="space-y-12 pb-12">
             {/* Header Section */}
-            <header className="flex justify-between items-end">
+            <header className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-6">
                 <div>
-                    <h2 className="text-4xl font-extrabold font-headline tracking-tight text-on-surface mb-2">
+                    <h2 className="text-3xl sm:text-4xl font-extrabold font-headline tracking-tight text-on-surface mb-2">
                         Transaction Hub
                     </h2>
-                    <p className="text-outline">
+                    <p className="text-sm text-outline">
                         Overview of Amanura's financial ecosystem and ongoing
                         sales pipelines.
                     </p>
                 </div>
-                <div className="flex gap-3">
-                    <button className="px-6 py-2.5 bg-surface-container-lowest text-primary font-semibold rounded-lg shadow-sm border border-outline-variant/10 hover:bg-surface-container-low transition-all uppercase tracking-widest text-xs">
+                <div className="flex flex-wrap sm:flex-nowrap gap-3">
+                    <button className="flex-1 sm:flex-none justify-center px-6 py-2.5 bg-surface-container-lowest text-primary font-semibold rounded-lg shadow-sm border border-outline-variant/10 hover:bg-surface-container-low transition-all uppercase tracking-widest text-xs">
                         Export Ledger
                     </button>
-                    <button className="px-6 py-2.5 bg-primary text-on-primary font-semibold rounded-lg shadow-lg shadow-primary/10 hover:shadow-primary/20 transition-all flex items-center gap-2 uppercase tracking-widest text-xs">
+                    <button className="flex-1 sm:flex-none justify-center px-6 py-2.5 bg-primary text-on-primary font-semibold rounded-lg shadow-lg shadow-primary/10 hover:shadow-primary/20 transition-all flex items-center gap-2 uppercase tracking-widest text-xs">
                         <span className="material-symbols-outlined text-sm">
                             add_shopping_cart
                         </span>
@@ -264,14 +264,22 @@ export default function TransactionsPage() {
                             <table className="w-full text-left border-separate border-spacing-y-3">
                                 <thead>
                                     <tr className="text-[10px] uppercase tracking-widest text-outline font-bold">
-                                        <th className="pb-2 px-2">
+                                        <th className="pb-2 px-2 whitespace-nowrap">
                                             Invoice ID
                                         </th>
-                                        <th className="pb-2">Property</th>
-                                        <th className="pb-2">Due Date</th>
-                                        <th className="pb-2">Amount</th>
-                                        <th className="pb-2">Status</th>
-                                        <th className="pb-2 text-right">
+                                        <th className="pb-2 whitespace-nowrap">
+                                            Property
+                                        </th>
+                                        <th className="pb-2 whitespace-nowrap">
+                                            Due Date
+                                        </th>
+                                        <th className="pb-2 whitespace-nowrap">
+                                            Amount
+                                        </th>
+                                        <th className="pb-2 whitespace-nowrap">
+                                            Status
+                                        </th>
+                                        <th className="pb-2 text-right whitespace-nowrap">
                                             Action
                                         </th>
                                     </tr>

@@ -68,23 +68,23 @@ export default function CrmPage() {
     return (
         <div className="space-y-10">
             {/* Welcome Header */}
-            <header className="flex justify-between items-end">
+            <header className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4">
                 <div>
-                    <h2 className="text-3xl font-extrabold text-on-surface tracking-tight font-headline">
+                    <h2 className="text-2xl sm:text-3xl font-extrabold text-on-surface tracking-tight font-headline">
                         CRM Dashboard
                     </h2>
-                    <p className="text-outline mt-1">
+                    <p className="text-xs sm:text-sm text-outline mt-1">
                         Manage your relationship pipeline and lead performance.
                     </p>
                 </div>
-                <div className="flex gap-3">
-                    <button className="px-4 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-lg text-sm font-medium text-primary hover:bg-surface-container-low transition-colors flex items-center gap-2">
+                <div className="flex flex-wrap sm:flex-nowrap gap-3">
+                    <button className="flex-1 sm:flex-none justify-center px-4 py-2 bg-surface-container-lowest border border-outline-variant/20 rounded-lg text-sm font-medium text-primary hover:bg-surface-container-low transition-colors flex items-center gap-2">
                         <span className="material-symbols-outlined text-lg">
                             file_download
                         </span>{" "}
                         Export CSV
                     </button>
-                    <button className="px-4 py-2 bg-primary text-on-primary rounded-lg text-sm font-medium hover:opacity-90 transition-all shadow-sm flex items-center gap-2">
+                    <button className="flex-1 sm:flex-none justify-center px-4 py-2 bg-primary text-on-primary rounded-lg text-sm font-medium hover:opacity-90 transition-all shadow-sm flex items-center gap-2">
                         <span className="material-symbols-outlined text-lg">
                             add
                         </span>{" "}
@@ -127,12 +127,12 @@ export default function CrmPage() {
 
             {/* CRM Table Section */}
             <section className="bg-surface-container-lowest rounded-2xl shadow-[0_20px_40px_rgba(42,52,57,0.06)] overflow-hidden border border-outline-variant/5">
-                <div className="px-8 py-6 border-b border-surface-container flex flex-wrap gap-4 items-center justify-between">
-                    <div className="flex items-center gap-4">
+                <div className="p-4 sm:p-6 md:px-8 md:py-6 border-b border-surface-container flex flex-col md:flex-row gap-4 md:items-center justify-between">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                         <h4 className="font-bold text-lg text-on-surface font-headline">
                             Recent Activity
                         </h4>
-                        <div className="flex gap-2">
+                        <div className="flex flex-wrap gap-2">
                             <button className="px-3 py-1.5 bg-surface-container-low text-xs font-semibold rounded-lg flex items-center gap-2 hover:bg-surface-container transition-colors">
                                 Status: All{" "}
                                 <span className="material-symbols-outlined text-sm">
@@ -147,7 +147,7 @@ export default function CrmPage() {
                             </button>
                         </div>
                     </div>
-                    <div className="relative min-w-[300px]">
+                    <div className="relative w-full md:w-auto md:min-w-[300px]">
                         <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">
                             filter_list
                         </span>
@@ -163,19 +163,19 @@ export default function CrmPage() {
                     <table className="w-full text-left border-collapse">
                         <thead>
                             <tr className="bg-surface-container-low/50">
-                                <th className="px-8 py-4 text-xs font-bold text-outline uppercase tracking-wider font-body">
+                                <th className="px-4 md:px-8 py-4 text-xs font-bold text-outline uppercase tracking-wider font-body whitespace-nowrap">
                                     Name
                                 </th>
-                                <th className="px-8 py-4 text-xs font-bold text-outline uppercase tracking-wider font-body">
+                                <th className="px-4 md:px-8 py-4 text-xs font-bold text-outline uppercase tracking-wider font-body whitespace-nowrap">
                                     Status
                                 </th>
-                                <th className="px-8 py-4 text-xs font-bold text-outline uppercase tracking-wider font-body">
+                                <th className="px-4 md:px-8 py-4 text-xs font-bold text-outline uppercase tracking-wider font-body whitespace-nowrap">
                                     Last Interaction
                                 </th>
-                                <th className="px-8 py-4 text-xs font-bold text-outline uppercase tracking-wider font-body">
+                                <th className="px-4 md:px-8 py-4 text-xs font-bold text-outline uppercase tracking-wider font-body whitespace-nowrap">
                                     Assigned Agent
                                 </th>
-                                <th className="px-8 py-4 text-xs font-bold text-outline uppercase tracking-wider font-body text-right">
+                                <th className="px-4 md:px-8 py-4 text-xs font-bold text-outline uppercase tracking-wider font-body text-right whitespace-nowrap">
                                     Actions
                                 </th>
                             </tr>
@@ -189,7 +189,7 @@ export default function CrmPage() {
                                         router.push(`/crm/${lead.id}`)
                                     }
                                 >
-                                    <td className="px-8 py-5">
+                                    <td className="px-4 md:px-8 py-5 whitespace-nowrap">
                                         <div className="flex items-center gap-3">
                                             <div className="w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs">
                                                 {lead.initials}
@@ -204,12 +204,12 @@ export default function CrmPage() {
                                             </div>
                                         </div>
                                     </td>
-                                    <td className="px-8 py-5">
+                                    <td className="px-4 md:px-8 py-5 whitespace-nowrap">
                                         <span className="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-[10px] font-bold uppercase tracking-tight">
                                             {lead.status}
                                         </span>
                                     </td>
-                                    <td className="px-8 py-5">
+                                    <td className="px-4 md:px-8 py-5 whitespace-nowrap">
                                         <p className="text-sm text-on-surface">
                                             {lead.date}
                                         </p>
@@ -217,7 +217,7 @@ export default function CrmPage() {
                                             {lead.interaction}
                                         </p>
                                     </td>
-                                    <td className="px-8 py-5">
+                                    <td className="px-4 md:px-8 py-5 whitespace-nowrap">
                                         <div className="flex items-center gap-2">
                                             {lead.agentImg ? (
                                                 <img
@@ -233,7 +233,7 @@ export default function CrmPage() {
                                             </span>
                                         </div>
                                     </td>
-                                    <td className="px-8 py-5 text-right">
+                                    <td className="px-4 md:px-8 py-5 text-right whitespace-nowrap">
                                         <button className="p-2 text-outline hover:text-primary transition-colors">
                                             <span className="material-symbols-outlined">
                                                 more_vert

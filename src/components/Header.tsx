@@ -1,10 +1,21 @@
 "use client";
 
-export default function Header() {
+export default function Header({
+    toggleSidebarAction,
+}: {
+    toggleSidebarAction?: () => void;
+}) {
     return (
-        <header className="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-background/70 backdrop-blur-md flex justify-between items-center px-8 shadow-[0_20px_40px_rgba(42,52,57,0.06)] border-b border-outline-variant/5">
-            <div className="flex items-center gap-4 flex-1">
-                <div className="relative w-full max-w-md group">
+        <header className="fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 z-40 bg-background/70 backdrop-blur-md flex justify-between items-center px-4 sm:px-8 shadow-[0_20px_40px_rgba(42,52,57,0.06)] border-b border-outline-variant/5">
+            <div className="flex items-center gap-2 sm:gap-4 flex-1">
+                <button
+                    onClick={toggleSidebarAction}
+                    className="p-2 md:hidden text-primary/60 hover:text-on-surface transition-colors"
+                    aria-label="Toggle Sidebar"
+                >
+                    <span className="material-symbols-outlined">menu</span>
+                </button>
+                <div className="relative w-full max-w-md group hidden sm:block">
                     <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">
                         search
                     </span>

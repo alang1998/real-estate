@@ -2,20 +2,20 @@ import KpiCard from "@/components/KpiCard";
 
 export default function DashboardPage() {
     return (
-        <div className="space-y-12">
+        <div className="space-y-8 md:space-y-12">
             {/* Hero Header */}
-            <header className="flex justify-between items-end">
+            <header className="flex flex-col lg:flex-row lg:justify-between lg:items-end gap-6">
                 <div className="max-w-2xl">
-                    <p className="text-sm font-semibold text-primary uppercase tracking-[0.2em] mb-2">
+                    <p className="text-xs md:text-sm font-semibold text-primary uppercase tracking-[0.2em] mb-2">
                         Portfolio Overview
                     </p>
-                    <h2 className="text-5xl font-extrabold text-on-surface leading-tight tracking-tight font-headline">
-                        The Real Estates <br /> at{" "}
+                    <h2 className="text-4xl md:text-5xl lg:text-5xl font-extrabold text-on-surface leading-tight tracking-tight font-headline">
+                        The Real Estates <br className="hidden md:block" /> at{" "}
                         <span className="text-primary-dim">Amanura</span>
                     </h2>
                 </div>
-                <div className="hidden lg:flex items-center gap-6 bg-surface-container-low p-4 rounded-2xl">
-                    <div className="text-right">
+                <div className="flex w-full lg:w-auto items-center justify-between lg:justify-start gap-4 md:gap-6 bg-surface-container-low p-4 rounded-2xl">
+                    <div className="text-left lg:text-right">
                         <p className="text-xs font-medium text-outline mb-1">
                             Market Performance
                         </p>
@@ -127,18 +127,18 @@ export default function DashboardPage() {
                     </section>
 
                     {/* Sales Pipeline Visualization */}
-                    <section className="bg-surface-container-lowest rounded-3xl p-10 shadow-[0_20px_40px_rgba(42,52,57,0.04)] border border-outline-variant/10">
-                        <div className="flex justify-between items-center mb-10">
+                    <section className="bg-surface-container-lowest rounded-3xl p-6 md:p-10 shadow-[0_20px_40px_rgba(42,52,57,0.04)] border border-outline-variant/10">
+                        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 md:mb-10">
                             <div>
-                                <h4 className="text-2xl font-extrabold tracking-tight font-headline">
+                                <h4 className="text-xl md:text-2xl font-extrabold tracking-tight font-headline">
                                     Sales Pipeline
                                 </h4>
-                                <p className="text-sm text-outline">
+                                <p className="text-xs md:text-sm text-outline">
                                     Lead conversion velocity across stages
                                 </p>
                             </div>
                             <div className="flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full cursor-pointer hover:bg-surface-container-high transition-colors">
-                                <span className="text-xs font-bold text-primary">
+                                <span className="text-xs font-bold text-primary whitespace-nowrap">
                                     Last 30 Days
                                 </span>
                                 <span className="material-symbols-outlined text-sm">
@@ -146,128 +146,131 @@ export default function DashboardPage() {
                                 </span>
                             </div>
                         </div>
-                        <div className="relative h-64 w-full px-4">
-                            {/* SVG Chart Background (Grid Lines) */}
-                            <svg
-                                className="absolute inset-0 w-full h-full pointer-events-none"
-                                style={{
-                                    paddingBottom: "40px",
-                                    paddingLeft: "20px",
-                                    paddingRight: "20px",
-                                }}
-                            >
-                                {[0, 25, 50, 75, 100].map((tick) => (
-                                    <g key={tick}>
-                                        <line
-                                            x1="0"
-                                            y1={`${100 - tick}%`}
-                                            x2="100%"
-                                            y2={`${100 - tick}%`}
-                                            stroke="currentColor"
-                                            className="text-outline-variant/10"
-                                            strokeDasharray="4 4"
-                                        />
-                                        <text
-                                            x="-5"
-                                            y={`${100 - tick}%`}
-                                            className="text-[8px] fill-outline font-bold"
-                                            textAnchor="end"
-                                            alignmentBaseline="middle"
-                                        >
-                                            {tick}%
-                                        </text>
-                                    </g>
-                                ))}
-                            </svg>
-
-                            <div
-                                className="flex items-end gap-6 h-full w-full relative z-10"
-                                style={{ paddingBottom: "40px" }}
-                            >
-                                {[
-                                    {
-                                        name: "Discovery",
-                                        height: "95%",
-                                        fill: "85%",
-                                        leads: 284,
-                                        value: "$12.4M",
-                                        color: "fill-blue-400",
-                                        bg: "fill-blue-100",
-                                    },
-                                    {
-                                        name: "Qualified",
-                                        height: "80%",
-                                        fill: "65%",
-                                        leads: 142,
-                                        value: "$8.2M",
-                                        color: "fill-indigo-400",
-                                        bg: "fill-indigo-100",
-                                    },
-                                    {
-                                        name: "Proposal",
-                                        height: "65%",
-                                        fill: "45%",
-                                        leads: 68,
-                                        value: "$4.1M",
-                                        color: "fill-purple-400",
-                                        bg: "fill-purple-100",
-                                    },
-                                    {
-                                        name: "Negotiation",
-                                        height: "50%",
-                                        fill: "30%",
-                                        leads: 32,
-                                        value: "$2.8M",
-                                        color: "fill-pink-400",
-                                        bg: "fill-pink-100",
-                                    },
-                                    {
-                                        name: "Closing",
-                                        height: "35%",
-                                        fill: "15%",
-                                        leads: 14,
-                                        value: "$1.2M",
-                                        color: "fill-emerald-400",
-                                        bg: "fill-emerald-100",
-                                    },
-                                ].map((stage) => (
-                                    <div
-                                        key={stage.name}
-                                        className="flex-1 flex flex-col items-center group cursor-pointer relative h-full justify-end"
-                                    >
-                                        <div className="absolute -top-12 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-on-surface text-surface-container-lowest px-3 py-1.5 rounded-lg text-[10px] font-bold z-20 shadow-xl whitespace-nowrap pointer-events-none">
-                                            {stage.leads} Leads • {stage.value}
-                                        </div>
-
-                                        <svg
-                                            className="w-full"
-                                            style={{ height: stage.height }}
-                                        >
-                                            <rect
-                                                width="100%"
-                                                height="100%"
-                                                rx="12"
-                                                className="fill-surface-container-high group-hover:fill-surface-container-highest transition-colors"
+                        <div className="relative h-64 w-full px-2 sm:px-4 overflow-x-auto overflow-y-hidden pb-4">
+                            <div className="min-w-[400px] h-full relative">
+                                {/* SVG Chart Background (Grid Lines) */}
+                                <svg
+                                    className="absolute inset-0 w-full h-full pointer-events-none"
+                                    style={{
+                                        paddingBottom: "40px",
+                                        paddingLeft: "20px",
+                                        paddingRight: "20px",
+                                    }}
+                                >
+                                    {[0, 25, 50, 75, 100].map((tick) => (
+                                        <g key={tick}>
+                                            <line
+                                                x1="0"
+                                                y1={`${100 - tick}%`}
+                                                x2="100%"
+                                                y2={`${100 - tick}%`}
+                                                stroke="currentColor"
+                                                className="text-outline-variant/10"
+                                                strokeDasharray="4 4"
                                             />
-                                            <rect
-                                                width="100%"
-                                                height={stage.fill}
-                                                y={`${100 - parseFloat(stage.fill)}%`}
-                                                rx="12"
-                                                className={`${stage.color} opacity-40 group-hover:opacity-100 transition-all`}
-                                            />
-                                        </svg>
+                                            <text
+                                                x="-5"
+                                                y={`${100 - tick}%`}
+                                                className="text-[8px] fill-outline font-bold"
+                                                textAnchor="end"
+                                                alignmentBaseline="middle"
+                                            >
+                                                {tick}%
+                                            </text>
+                                        </g>
+                                    ))}
+                                </svg>
 
-                                        <div className="absolute top-full mt-4 text-center w-full">
-                                            <span className="block text-[10px] font-bold text-on-surface uppercase tracking-widest whitespace-nowrap">
-                                                {stage.name}
-                                            </span>
-                                            <span className="text-[9px] font-medium text-outline">
-                                                {stage.leads} leads
-                                            </span>
+                                <div
+                                    className="flex items-end gap-6 h-full w-full relative z-10"
+                                    style={{ paddingBottom: "40px" }}
+                                >
+                                    {[
+                                        {
+                                            name: "Discovery",
+                                            height: "95%",
+                                            fill: "85%",
+                                            leads: 284,
+                                            value: "$12.4M",
+                                            color: "fill-blue-400",
+                                            bg: "fill-blue-100",
+                                        },
+                                        {
+                                            name: "Qualified",
+                                            height: "80%",
+                                            fill: "65%",
+                                            leads: 142,
+                                            value: "$8.2M",
+                                            color: "fill-indigo-400",
+                                            bg: "fill-indigo-100",
+                                        },
+                                        {
+                                            name: "Proposal",
+                                            height: "65%",
+                                            fill: "45%",
+                                            leads: 68,
+                                            value: "$4.1M",
+                                            color: "fill-purple-400",
+                                            bg: "fill-purple-100",
+                                        },
+                                        {
+                                            name: "Negotiation",
+                                            height: "50%",
+                                            fill: "30%",
+                                            leads: 32,
+                                            value: "$2.8M",
+                                            color: "fill-pink-400",
+                                            bg: "fill-pink-100",
+                                        },
+                                        {
+                                            name: "Closing",
+                                            height: "35%",
+                                            fill: "15%",
+                                            leads: 14,
+                                            value: "$1.2M",
+                                            color: "fill-emerald-400",
+                                            bg: "fill-emerald-100",
+                                        },
+                                    ].map((stage) => (
+                                        <div
+                                            key={stage.name}
+                                            className="flex-1 flex flex-col items-center group cursor-pointer relative h-full justify-end"
+                                        >
+                                            <div className="absolute -top-12 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-on-surface text-surface-container-lowest px-3 py-1.5 rounded-lg text-[10px] font-bold z-20 shadow-xl whitespace-nowrap pointer-events-none">
+                                                {stage.leads} Leads •{" "}
+                                                {stage.value}
+                                            </div>
+
+                                            <svg
+                                                className="w-full"
+                                                style={{ height: stage.height }}
+                                            >
+                                                <rect
+                                                    width="100%"
+                                                    height="100%"
+                                                    rx="12"
+                                                    className="fill-surface-container-high group-hover:fill-surface-container-highest transition-colors"
+                                                />
+                                                <rect
+                                                    width="100%"
+                                                    height={stage.fill}
+                                                    y={`${100 - parseFloat(stage.fill)}%`}
+                                                    rx="12"
+                                                    className={`${stage.color} opacity-40 group-hover:opacity-100 transition-all`}
+                                                />
+                                            </svg>
+
+                                            <div className="absolute top-full mt-4 text-center w-full">
+                                                <span className="block text-[10px] font-bold text-on-surface uppercase tracking-widest whitespace-nowrap">
+                                                    {stage.name}
+                                                </span>
+                                                <span className="text-[9px] font-medium text-outline">
+                                                    {stage.leads} leads
+                                                </span>
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </section>
