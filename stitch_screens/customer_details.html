@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Customer Profile - Adrian Wijaya | Amanura</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-background": "#2a3439",
+                        "on-tertiary-fixed-variant": "#5b5672",
+                        "tertiary-container": "#e3dbfd",
+                        "primary": "#565e74",
+                        "on-primary-fixed": "#373f54",
+                        "on-surface-variant": "#566166",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#506076",
+                        "tertiary-dim": "#54506b",
+                        "inverse-surface": "#0b0f10",
+                        "on-tertiary": "#fcf7ff",
+                        "surface-variant": "#d9e4ea",
+                        "surface": "#f7f9fb",
+                        "outline": "#717c82",
+                        "tertiary-fixed": "#e3dbfd",
+                        "secondary-dim": "#44546a",
+                        "on-secondary-fixed-variant": "#4d5d73",
+                        "error-dim": "#4e0309",
+                        "on-secondary-container": "#435368",
+                        "on-tertiary-fixed": "#3e3a54",
+                        "surface-container": "#e8eff3",
+                        "on-primary-container": "#4a5167",
+                        "primary-fixed-dim": "#ccd4ee",
+                        "tertiary": "#605c78",
+                        "surface-container-low": "#f0f4f7",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary": "#f7f7ff",
+                        "on-error": "#fff7f6",
+                        "on-secondary-fixed": "#314055",
+                        "tertiary-fixed-dim": "#d4cdee",
+                        "error": "#9f403d",
+                        "secondary-fixed-dim": "#c5d6f0",
+                        "inverse-primary": "#dae2fd",
+                        "on-surface": "#2a3439",
+                        "primary-fixed": "#dae2fd",
+                        "error-container": "#fe8983",
+                        "surface-dim": "#cfdce3",
+                        "primary-dim": "#4a5268",
+                        "on-error-container": "#752121",
+                        "surface-container-high": "#e1e9ee",
+                        "outline-variant": "#a9b4b9",
+                        "inverse-on-surface": "#9a9d9f",
+                        "surface-tint": "#565e74",
+                        "on-tertiary-container": "#514d68",
+                        "surface-container-highest": "#d9e4ea",
+                        "on-secondary": "#f7f9ff",
+                        "secondary-fixed": "#d3e4fe",
+                        "primary-container": "#dae2fd",
+                        "on-primary-fixed-variant": "#535b71",
+                        "secondary-container": "#d3e4fe",
+                        "background": "#f7f9fb"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .tonal-shift { transition: background-color 0.3s ease; }
+        body { background-color: #f7f9fb; color: #2a3439; }
+        .perspective-peek {
+            backdrop-filter: blur(12px);
+            background-color: rgba(247, 249, 251, 0.8);
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #d9e4ea; border-radius: 10px; }
+    </style>
+</head>
+<body class="font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-6 px-4 h-screen w-64 border-r border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 font-manrope text-sm font-medium z-50">
+<div class="mb-10 px-4">
+<h1 class="font-manrope font-bold text-slate-900 dark:text-white text-xl tracking-tight">Amanura</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-slate-400 mt-1">Real Estate Management</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="domain">domain</span>
+                Inventory
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-900 dark:text-white bg-white dark:bg-slate-800 rounded-md shadow-sm" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="group">group</span>
+                CRM
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="swap_horiz">swap_horiz</span>
+                Transactions
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+                Finance
+            </a>
+</nav>
+<div class="mt-auto pt-6 border-t border-slate-200/50 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+                Support
+            </a>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="sticky top-0 z-40 flex items-center justify-between px-8 h-16 w-full ml-64 max-w-[calc(100%-16rem)] bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border-b border-slate-100 dark:border-slate-800/50">
+<div class="flex items-center flex-1 max-w-md">
+<div class="relative w-full group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-100/50 border-none rounded-lg text-sm focus:ring-1 focus:ring-primary/20 transition-all outline-none" placeholder="Search customer records..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="relative text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+</button>
+<button class="text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="apps">apps</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-slate-200">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="professional male executive headshot in business attire with neutral background for user profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRU0khU55qZlrBdx13sy-EaCUz1PxEXoUVnyLWjz-Fxl6twnHA6YkNj7D7cupC6BbqBDE3gouE5LHJFbBcVvPegkV9_jBcHQFU7o1_hiESnWAQwwISoPbgAoZpPHC-0F4FDsUyjlqnL6oXxsNannC_r8hngcjMHmShdxWQW0dBEanMt_B3WgC_CMwcOr4tWczpYDM64tnKzHyv-iROs7fVWdG1Rd2WyMEUvUDQnGMRjzCzQ2hCB26mGradf_BHQJBCEZhlDX05GclF"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-10 min-h-screen">
+<div class="max-w-7xl mx-auto">
+<!-- Header Editorial Section -->
+<div class="flex justify-between items-end mb-12">
+<div>
+<nav class="flex items-center gap-2 text-[10px] font-semibold tracking-widest uppercase text-outline mb-3">
+<span>CRM</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span class="text-primary">Customer Profile</span>
+</nav>
+<h2 class="font-headline text-4xl font-extrabold text-on-background tracking-tight">Adrian Wijaya</h2>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 rounded-lg border border-outline-variant/30 text-on-surface font-semibold text-sm hover:bg-surface-container-low transition-all">Export Portfolio</button>
+<button class="px-6 py-2.5 rounded-lg bg-primary text-on-primary font-semibold text-sm hover:bg-primary-dim transition-all shadow-sm">Edit Profile</button>
+</div>
+</div>
+<!-- Bento Layout Content -->
+<div class="grid grid-cols-12 gap-8 items-start">
+<!-- Left Column: Profile Card -->
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(42,52,57,0.06)]">
+<div class="relative w-32 h-32 mx-auto mb-6">
+<img alt="Adrian Wijaya" class="w-full h-full object-cover rounded-xl grayscale hover:grayscale-0 transition-all duration-500" data-alt="portrait of a young professional asian man with a friendly expression and stylish haircut on a soft grey background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkTnmP6OgxZmamGEseBx0qUzQvQijVDObdQ-HkG98_KMuEyUJs1qj25OfuZf8iRYSDYiX8YLppIkAhjyIM5yI83lng40Gj1ZU1taqALfOU3iQs3Up-yqWvCCaTARde430P-2DluhhcT-qxWYr_H7vV7Y1LP8tmG7wCGUJL1y1vVJ6fV6jN01AR9it_exd6R-ANAI3nuMzg-PPdA9ftaG7ugtNdC6Wn1CDQANJSpIRTe7FExPufZrTxvLlCfmAmTLQEtY_0i2yjKHm4"/>
+<div class="absolute -bottom-2 -right-2 bg-primary text-on-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter">Gold Tier</div>
+</div>
+<div class="text-center mb-8">
+<h3 class="font-headline text-xl font-bold text-on-background">Adrian Wijaya</h3>
+<p class="text-sm text-outline mb-4">Tech Entrepreneur &amp; Investor</p>
+<span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-on-secondary-container"></span>
+                                Lead: New
+                            </span>
+</div>
+<div class="space-y-6 pt-6 border-t border-surface-container">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="mail">mail</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-outline uppercase tracking-wider">Email Address</p>
+<p class="text-sm font-medium text-on-background">adrian.w@nexus.id</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="phone">phone</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-outline uppercase tracking-wider">Phone Number</p>
+<p class="text-sm font-medium text-on-background">+62 811 9872 441</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="location_on">location_on</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-outline uppercase tracking-wider">Preferred Area</p>
+<p class="text-sm font-medium text-on-background">Uluwatu, Bali</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Financial Summary Card -->
+<div class="bg-primary text-on-primary p-8 rounded-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+<p class="text-[10px] font-bold uppercase tracking-[0.2em] opacity-60 mb-1">Purchasing Power</p>
+<h4 class="font-headline text-3xl font-extrabold mb-6">$2.4M - $4.0M</h4>
+<div class="flex justify-between items-center bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+<span class="text-xs font-medium">Risk Assessment</span>
+<span class="text-xs font-bold px-2 py-1 bg-green-500/20 text-green-100 rounded">Low Risk</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Details -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<!-- Section 1: Transaction & Properties -->
+<div class="bg-surface-container-low p-8 rounded-xl border border-white/50">
+<div class="flex justify-between items-center mb-8">
+<h4 class="font-headline text-lg font-bold text-on-background">Transaction History</h4>
+<button class="text-xs font-bold text-primary flex items-center gap-1">View All <span class="material-symbols-outlined text-sm">trending_flat</span></button>
+</div>
+<div class="space-y-4">
+<!-- Property Item -->
+<div class="bg-surface-container-lowest p-5 rounded-xl group hover:shadow-md transition-all flex items-center justify-between">
+<div class="flex items-center gap-5">
+<div class="w-20 h-16 rounded-lg overflow-hidden bg-surface-variant">
+<img alt="Amanura Heights" class="w-full h-full object-cover" data-alt="ultra modern architectural villa with infinity pool at dusk, clean lines and warm interior lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzTomvBqVYimWbL5m_d1ABXUxUrFCaSh1TKwaH5TVZkTAlJLlsKN5zP7ibnX9cQ_djAoMyrfPNuwxAnXL99Ak1hik7Zxgb_w8QUP1cLd8ScrdGvTlS1QxeytTngoZdCnsH9Ju26b4gbWYcKU3Z-Jn1jl4PRS0DwqZ_S-WU3lxSWsaQKuBxCZXxUSnxsqaHMArn6eTv9iT-dBvvae-pkCOg9b_iHiZSeBxPhENaGIxtLTx0cpJ1a_KLX_7CU-Sgtu7gxp_9eqwP_8gU"/>
+</div>
+<div>
+<h5 class="font-bold text-on-background group-hover:text-primary transition-colors">Amanura Heights Phase II - Villa B-12</h5>
+<p class="text-xs text-outline flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-xs">calendar_today</span> Viewed 14 Oct 2023
+                                        </p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-on-background mb-1">$1,250,000</p>
+<span class="text-[10px] font-extrabold uppercase px-2 py-1 bg-primary/10 text-primary rounded">Booked</span>
+</div>
+</div>
+<!-- Property Item -->
+<div class="bg-surface-container-lowest p-5 rounded-xl group hover:shadow-md transition-all flex items-center justify-between">
+<div class="flex items-center gap-5">
+<div class="w-20 h-16 rounded-lg overflow-hidden bg-surface-variant">
+<img alt="Ocean View" class="w-full h-full object-cover" data-alt="luxurious beachfront penthouse with floor to ceiling windows overlooking a turquoise ocean during daytime" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfbp8nO14XP48UGmqsTMRk7E-MVVKkI66mDlX8YmStn5h7WYz0eORhWWKM-ASe6AdKSjeopPWeZXxmMxbjNAu3qt4UW7KuOwU1SbiBUYVylY4BJ47EBeR44pfWJgsw_r2luX0Fg88lO2iXkeAfW8P3-enDDyL6zS0XPDUr3hk0CswCuOqdkLQdrtj7O36t8C5c6ldzY-HJxzmmswSEUtDPyxBQTKVuL75CDbIskXHwoQlS2iq2njkDrx4MqG-bfY_7mCU09Lm6IXSj"/>
+</div>
+<div>
+<h5 class="font-bold text-on-background group-hover:text-primary transition-colors">Ocean Breeze Penthouse 4C</h5>
+<p class="text-xs text-outline flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-xs">calendar_today</span> Viewed 02 Oct 2023
+                                        </p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-on-background mb-1">$890,000</p>
+<span class="text-[10px] font-extrabold uppercase px-2 py-1 bg-surface-container-highest text-outline rounded">Visited</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: Legal Documents Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="badge">badge</span>
+<p class="text-[10px] font-bold uppercase text-outline tracking-wider mb-1">ID Document (KTP)</p>
+<h5 class="font-bold text-sm mb-4">Identity Verification</h5>
+<span class="inline-flex items-center gap-1 text-[10px] font-bold text-green-600 px-2 py-1 bg-green-50 rounded-full">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">check_circle</span> Verified
+                            </span>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="description">description</span>
+<p class="text-[10px] font-bold uppercase text-outline tracking-wider mb-1">Tax Record (NPWP)</p>
+<h5 class="font-bold text-sm mb-4">Fiscal Compliance</h5>
+<span class="inline-flex items-center gap-1 text-[10px] font-bold text-green-600 px-2 py-1 bg-green-50 rounded-full">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">check_circle</span> Verified
+                            </span>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-surface-container">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="account_balance">account_balance</span>
+<p class="text-[10px] font-bold uppercase text-outline tracking-wider mb-1">Financial Proof</p>
+<h5 class="font-bold text-sm mb-4">Proof of Funds</h5>
+<span class="inline-flex items-center gap-1 text-[10px] font-bold text-amber-600 px-2 py-1 bg-amber-50 rounded-full">
+<span class="material-symbols-outlined text-xs">pending</span> Pending
+                            </span>
+</div>
+</div>
+<!-- Section 3: Communication Log Timeline -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-surface-container">
+<div class="flex justify-between items-center mb-10">
+<h4 class="font-headline text-lg font-bold text-on-background">Communication Log</h4>
+<button class="w-8 h-8 rounded-full border border-surface-container-highest flex items-center justify-center hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<div class="relative space-y-10 before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-surface-container-highest">
+<!-- Timeline Entry 1 -->
+<div class="relative pl-10">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center ring-4 ring-white z-10">
+<span class="material-symbols-outlined text-[14px]">call</span>
+</div>
+<div>
+<div class="flex justify-between items-start mb-2">
+<h6 class="font-bold text-sm text-on-background">Follow-up Call: Financial Discussion</h6>
+<span class="text-[10px] font-medium text-outline">Yesterday, 14:20</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                                        Discussed potential payment plans for Villa B-12. Adrian expressed interest in the 24-month installment option. Mentioned Proof of Funds is being processed by his bank.
+                                    </p>
+<div class="mt-3 flex items-center gap-2">
+<img alt="Agent" class="w-6 h-6 rounded-full object-cover grayscale" data-alt="professional woman headshot with warm smile and dark hair in corporate attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBlLfP-xsGKKMFpgaxXDqWW6l59HnnLlhryHOldafSnOTlzpj2Q5dgzJG4NZ-EPAOz5DfD_juyU2P3_IIw-ZmH4xAKIzvKJwQS84g5LPqhQ8qKV4NHmRXrECsTpyLYAiD9_us_hclyHjJUEwxvScE7DFRcg7tqhJB8TJ9qXmG3yuHwWAhF2whJ6rv_LQ_FJW5BmSvO31ovzPjj_GOA0_T4hm-lX5KynGQlkbB-6bsr6jTE5UZgvExHRGDBIZsDPcNbvNMaBx-zmaNe"/>
+<span class="text-[10px] font-bold text-outline">Logged by Sarah J. (Senior Agent)</span>
+</div>
+</div>
+</div>
+<!-- Timeline Entry 2 -->
+<div class="relative pl-10">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center ring-4 ring-white z-10">
+<span class="material-symbols-outlined text-[14px]">visibility</span>
+</div>
+<div>
+<div class="flex justify-between items-start mb-2">
+<h6 class="font-bold text-sm text-on-background">On-site Property Tour</h6>
+<span class="text-[10px] font-medium text-outline">14 Oct 2023, 10:00</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                                        Conducted a physical walkthrough of Amanura Heights Phase II. Client was particularly impressed with the western sunset views from the terrace.
+                                    </p>
+</div>
+</div>
+<!-- Timeline Entry 3 -->
+<div class="relative pl-10">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-surface-container-highest text-outline flex items-center justify-center ring-4 ring-white z-10">
+<span class="material-symbols-outlined text-[14px]">mail</span>
+</div>
+<div>
+<div class="flex justify-between items-start mb-2">
+<h6 class="font-bold text-sm text-on-background">Initial Inquiry - Website Form</h6>
+<span class="text-[10px] font-medium text-outline">28 Sep 2023, 23:15</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed italic">
+                                        "Hi, I'm interested in the Uluwatu developments. Looking for a 4-bedroom villa with private beach access. Please send brochures."
+                                    </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Perspective Peek Panel (Hidden/Contextual example) -->
+<div class="fixed inset-y-0 right-0 w-80 perspective-peek border-l border-white/20 shadow-2xl z-40 transform translate-x-full lg:translate-x-0 hidden lg:block overflow-y-auto px-6 py-10">
+<h4 class="font-headline text-sm font-bold uppercase tracking-widest text-primary mb-8">Agent Insights</h4>
+<div class="space-y-8">
+<div class="bg-white/40 p-5 rounded-lg border border-white/60">
+<p class="text-[10px] font-bold text-outline uppercase mb-2">Top Interest</p>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="architecture">architecture</span>
+<span class="text-sm font-semibold">Modern Tropical</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[85%]"></div>
+</div>
+</div>
+<div class="space-y-4">
+<p class="text-[10px] font-bold text-outline uppercase">Priority Scores</p>
+<div class="flex justify-between items-center">
+<span class="text-xs font-medium">Responsiveness</span>
+<span class="text-xs font-bold text-green-600">High</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs font-medium">Budget Fit</span>
+<span class="text-xs font-bold text-primary">Matched</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs font-medium">Urgency</span>
+<span class="text-xs font-bold text-amber-600">Medium</span>
+</div>
+</div>
+<div class="pt-8 border-t border-outline-variant/20">
+<h5 class="text-xs font-bold mb-4">Internal Notes</h5>
+<p class="text-xs text-on-surface-variant italic leading-relaxed bg-white/30 p-4 rounded-lg">
+                    Adrian is sensitive to privacy and noise levels. Emphasize the soundproofing and gated security during the next call. He mentioned a friend who might also be interested in the same cluster.
+                </p>
+</div>
+</div>
+</div>
+</body></html>
