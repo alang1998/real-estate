@@ -14,20 +14,36 @@ export default function DashboardPage() {
                         <span className="text-primary-dim">Amanura</span>
                     </h2>
                 </div>
-                <div className="hidden lg:flex items-center gap-4 bg-surface-container-low p-4 rounded-2xl">
+                <div className="hidden lg:flex items-center gap-6 bg-surface-container-low p-4 rounded-2xl">
                     <div className="text-right">
-                        <p className="text-xs font-medium text-outline">
+                        <p className="text-xs font-medium text-outline mb-1">
                             Market Performance
                         </p>
-                        <p className="text-lg font-bold text-on-surface">
+                        <p className="text-lg font-bold text-on-surface flex items-center justify-end gap-1">
                             +12.4%{" "}
                             <span className="text-xs font-normal text-emerald-600">
                                 ↑
                             </span>
                         </p>
                     </div>
-                    <div className="w-12 h-12 rounded-full border-4 border-white flex items-center justify-center">
-                        <span className="material-symbols-outlined text-primary">
+                    {/* Small Sparkline */}
+                    <svg
+                        width="40"
+                        height="20"
+                        className="text-emerald-500 overflow-visible"
+                    >
+                        <path
+                            d="M 0 15 L 8 18 L 16 10 L 24 12 L 32 4 L 40 6"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        />
+                        <circle cx="40" cy="6" r="2.5" fill="currentColor" />
+                    </svg>
+                    <div className="w-11 h-11 rounded-full border-4 border-white bg-white shadow-sm flex items-center justify-center">
+                        <span className="material-symbols-outlined text-primary text-xl">
                             trending_up
                         </span>
                     </div>
@@ -130,43 +146,129 @@ export default function DashboardPage() {
                                 </span>
                             </div>
                         </div>
-                        <div className="flex items-end gap-4 h-64 w-full px-4">
-                            {[
-                                {
-                                    name: "Discovery",
-                                    height: "90%",
-                                    fill: "40%",
-                                },
-                                {
-                                    name: "Qualified",
-                                    height: "75%",
-                                    fill: "60%",
-                                },
-                                {
-                                    name: "Proposal",
-                                    height: "60%",
-                                    fill: "80%",
-                                },
-                                { name: "Closing", height: "45%", fill: "95%" },
-                            ].map((stage) => (
-                                <div
-                                    key={stage.name}
-                                    className="flex-1 flex flex-col items-center group cursor-pointer"
-                                >
+                        <div className="relative h-64 w-full px-4">
+                            {/* SVG Chart Background (Grid Lines) */}
+                            <svg
+                                className="absolute inset-0 w-full h-full pointer-events-none"
+                                style={{
+                                    paddingBottom: "40px",
+                                    paddingLeft: "20px",
+                                    paddingRight: "20px",
+                                }}
+                            >
+                                {[0, 25, 50, 75, 100].map((tick) => (
+                                    <g key={tick}>
+                                        <line
+                                            x1="0"
+                                            y1={`${100 - tick}%`}
+                                            x2="100%"
+                                            y2={`${100 - tick}%`}
+                                            stroke="currentColor"
+                                            className="text-outline-variant/10"
+                                            strokeDasharray="4 4"
+                                        />
+                                        <text
+                                            x="-5"
+                                            y={`${100 - tick}%`}
+                                            className="text-[8px] fill-outline font-bold"
+                                            textAnchor="end"
+                                            alignmentBaseline="middle"
+                                        >
+                                            {tick}%
+                                        </text>
+                                    </g>
+                                ))}
+                            </svg>
+
+                            <div
+                                className="flex items-end gap-6 h-full w-full relative z-10"
+                                style={{ paddingBottom: "40px" }}
+                            >
+                                {[
+                                    {
+                                        name: "Discovery",
+                                        height: "95%",
+                                        fill: "85%",
+                                        leads: 284,
+                                        value: "$12.4M",
+                                        color: "fill-blue-400",
+                                        bg: "fill-blue-100",
+                                    },
+                                    {
+                                        name: "Qualified",
+                                        height: "80%",
+                                        fill: "65%",
+                                        leads: 142,
+                                        value: "$8.2M",
+                                        color: "fill-indigo-400",
+                                        bg: "fill-indigo-100",
+                                    },
+                                    {
+                                        name: "Proposal",
+                                        height: "65%",
+                                        fill: "45%",
+                                        leads: 68,
+                                        value: "$4.1M",
+                                        color: "fill-purple-400",
+                                        bg: "fill-purple-100",
+                                    },
+                                    {
+                                        name: "Negotiation",
+                                        height: "50%",
+                                        fill: "30%",
+                                        leads: 32,
+                                        value: "$2.8M",
+                                        color: "fill-pink-400",
+                                        bg: "fill-pink-100",
+                                    },
+                                    {
+                                        name: "Closing",
+                                        height: "35%",
+                                        fill: "15%",
+                                        leads: 14,
+                                        value: "$1.2M",
+                                        color: "fill-emerald-400",
+                                        bg: "fill-emerald-100",
+                                    },
+                                ].map((stage) => (
                                     <div
-                                        className="w-full bg-surface-container-high rounded-t-xl transition-all group-hover:bg-primary/20 relative"
-                                        style={{ height: stage.height }}
+                                        key={stage.name}
+                                        className="flex-1 flex flex-col items-center group cursor-pointer relative h-full justify-end"
                                     >
-                                        <div
-                                            className="absolute inset-x-0 bottom-0 bg-primary/40 rounded-t-xl transition-all group-hover:bg-primary"
-                                            style={{ height: stage.fill }}
-                                        ></div>
+                                        <div className="absolute -top-12 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-on-surface text-surface-container-lowest px-3 py-1.5 rounded-lg text-[10px] font-bold z-20 shadow-xl whitespace-nowrap pointer-events-none">
+                                            {stage.leads} Leads • {stage.value}
+                                        </div>
+
+                                        <svg
+                                            className="w-full"
+                                            style={{ height: stage.height }}
+                                        >
+                                            <rect
+                                                width="100%"
+                                                height="100%"
+                                                rx="12"
+                                                className="fill-surface-container-high group-hover:fill-surface-container-highest transition-colors"
+                                            />
+                                            <rect
+                                                width="100%"
+                                                height={stage.fill}
+                                                y={`${100 - parseFloat(stage.fill)}%`}
+                                                rx="12"
+                                                className={`${stage.color} opacity-40 group-hover:opacity-100 transition-all`}
+                                            />
+                                        </svg>
+
+                                        <div className="absolute top-full mt-4 text-center w-full">
+                                            <span className="block text-[10px] font-bold text-on-surface uppercase tracking-widest whitespace-nowrap">
+                                                {stage.name}
+                                            </span>
+                                            <span className="text-[9px] font-medium text-outline">
+                                                {stage.leads} leads
+                                            </span>
+                                        </div>
                                     </div>
-                                    <span className="mt-4 text-[10px] font-bold text-outline uppercase tracking-widest">
-                                        {stage.name}
-                                    </span>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     </section>
                 </div>
